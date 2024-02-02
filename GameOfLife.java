@@ -107,6 +107,10 @@ public class GameOfLife {
 		//checking if its a live cell
 		if (board[i][j] == 1) {
 			//checking neibcell value
+
+			//linoy feedback: in the two cases you return the same value; please change to this :
+			// if (count(board, i, j) < 2 || count(board, i, j) > 3) -> return 0;
+			
 			if (count(board, i, j) < 2) {
 				return 0;
 			}else if (count(board, i, j) > 3) {
@@ -127,6 +131,12 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	public static int count(int[][] board, int i, int j) {
 		int sum;
+		//linoy feedback: my suggestion is: 
+		//for(i=0....
+		//   for(j= 0.....
+		//	sum+= board[i][j]
+		//my sultion is more clarify
+			
 		sum = board[i-1][j-1] + board[i-1][j] + board[i-1][j+1] + board[i][j-1] + board[i][j+1] + board[i+1][j-1] + board[i+1][j] + board[i+1][j+1];
 		return sum;
 	}
